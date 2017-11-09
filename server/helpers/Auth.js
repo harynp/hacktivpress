@@ -3,7 +3,6 @@ require('dotenv').config()
 const env = process.env.NODE_ENV || "development"
 const Article = require('../models/Article')
 
-
 const Login = (req,res,next) => {
     jwt.verify(req.headers.token, process.env.JWT_SECRET, (err, decoded) => {
         if (err) {

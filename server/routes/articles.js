@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var Article = require('../controllers/Articles')
+var Art = require('../controllers/Articles')
 
 /* GET users listing. */
-router.get('/', Article.getArticles)
-router.post('/', Article.postArticles);
+router.get('/', Art.getArticles);
+router.post('/', Art.postArticles);
+router.delete('/', Art.delArticles);
+router.put('/', Art.updArticles);
 
 module.exports = router;

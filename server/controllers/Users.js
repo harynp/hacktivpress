@@ -42,18 +42,18 @@ function signIn (req, res) {
       res.send('Username & Password Anda Salah')
   })
 }
-//
-// function pemecahToken (req, res) {
-//   jwt.verify(req.body.token, process.env.JWT_SECRET, (err, decoded) => {
-//     if (err) {
-//       res.send(err)
-//     } else {
-//       console.log(decoded)
-//       res.send(decoded)
-//     }
-//   })
-// }
-//
+
+function Token (req, res) {
+  jwt.verify(req.body.token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      res.send(err)
+    } else {
+      console.log(decoded)
+      res.send(decoded)
+    }
+  })
+}
+
 function getAllUser (req, res) {
   User.find({})
   .then(users => res.send(users))
@@ -64,6 +64,6 @@ function getAllUser (req, res) {
 module.exports = {
   signUp,
   signIn,
-  getAllUser
-  // pemecahToken
+  getAllUser,
+  Token
 }
