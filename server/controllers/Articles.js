@@ -38,7 +38,7 @@ class Articles {
           }
       },{new: true})
       .then(updPost=>{
-          res.status(200).send({updPost, message:'Updated Question Berhasil!'})
+          res.status(200).send({updPost, message:'Updated Articles Berhasil!'})
       })
       .catch(err=>{
           res.status(400).send(err)

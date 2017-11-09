@@ -101,9 +101,6 @@ export default {
         })
         .catch(err => console.log(err))
     },
-    removeUser: function(user) {
-      this.users.splice(this.users.indexOf(user), 1)
-    },
     getUser() {
       this.$http.get('/users')
         .then(({data}) => {
@@ -114,7 +111,7 @@ export default {
       this.$http.post('/users/login', this.login)
         .then(data => {
           localStorage.setItem('Token', data.data)
-          this.$router.push('/Home')
+          this.$router.push('/home')
         })
         .catch(err => {
           console.log(err);
@@ -122,6 +119,9 @@ export default {
           this.login.password = ''
         })
     }
+  },
+  beforeMount: function() {
+
   }
 }
 </script>

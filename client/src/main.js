@@ -6,6 +6,8 @@ import router from './router'
 import axios from 'axios'
 import store from './vuex/store'
 
+Vue.use(require('vue-resource'));
+
 Vue.prototype.$http = axios.create({
   baseURL: 'http://localhost:3000'
 })
