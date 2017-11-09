@@ -1,13 +1,13 @@
 <template>
 <div class="">
   <div class="container">
-  <form >
+  <form @submit.prevent="submitArticles(formArticles)">
     <div class="row">
       <div class="col-25">
         <label>Title</label>
       </div>
       <div class="col-75">
-        <input type="text" name="title" placeholder="Title">
+        <input v-model="formArticles.title" type="text" name="title" placeholder="Title">
       </div>
     </div>
     <div class="row">
@@ -15,7 +15,7 @@
         <label>Category</label>
       </div>
       <div class="col-75">
-        <input type="text" name="category" placeholder="Category">
+        <input v-model="formArticles.category" type="text" name="category" placeholder="Category">
       </div>
     </div>
     <div class="row">
@@ -23,11 +23,11 @@
         <label>Content</label>
       </div>
       <div class="col-75">
-        <textarea name="content" placeholder="Content" style="height:200px"></textarea>
+        <textarea v-model="formArticles.content" name="content" placeholder="Content" style="height:200px"></textarea>
       </div>
     </div>
     <div class="row">
-      <input type="submit" value="Submit">
+      <button class="btn btn-primary" type="submit" name="button">Submit</button>
     </div>
   </form>
 </div>
@@ -35,8 +35,22 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
-
+  data () {
+    return {
+      formArticles: {
+        title: '',
+        category: '',
+        content: ''
+      }
+    }
+  },
+  methods: {
+    ...mapActions([
+      'submitArticles'
+    ])
+  }
 }
 
 </script>
