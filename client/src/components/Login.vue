@@ -51,12 +51,6 @@
               <span></span>
             </div>
             <div class="form-group">
-              <label for="name" class="col-md-3 control-label">Name</label>
-              <div class="col-md-9">
-                <input type="text" class="form-control" name="name" placeholder="Name" v-model="register.name">
-              </div>
-            </div>
-            <div class="form-group">
               <label for="username" class="col-md-3 control-label">Username</label>
               <div class="col-md-9">
                 <input type="text" class="form-control" name="username" placeholder="Username" v-model="register.username">
@@ -68,13 +62,6 @@
                 <input type="password" class="form-control" name="password" placeholder="Password" v-model="register.password">
               </div>
             </div>
-            <div class="form-group">
-              <label for="email" class="col-md-3 control-label">Email</label>
-              <div class="col-md-9">
-                <input type="text" class="form-control" name="email" placeholder="Email" v-model="register.email">
-              </div>
-            </div>
-
             <div class="form-group">
               <div class="col-md-offset-3 col-md-">
                 <button id="btn-signup" type="button" class="btn btn-primary" @click="addUser($event)">Submit</button>
@@ -106,7 +93,7 @@ export default {
   methods: {
     addUser: function(e) {
       e.preventDefault()
-      this.$http.post('/users/register', this.register)
+      this.$http.post('/users/signup', this.register)
         .then(data => {
           this.register.username = '',
           this.register.password = ''
